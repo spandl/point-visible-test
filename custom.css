@@ -50,7 +50,7 @@ body {
 .layout-container {
   display: flex;
   gap: 40px;
-  align-items: flex-start;
+  align-items: center;
 }
 .svg-preview {
   flex: 0 0 40%;
@@ -78,6 +78,25 @@ body {
   flex-direction: column;
   flex-wrap: unset;
   margin-bottom: 15px;
+  flex: 0 0 calc(25% - 15px);
+  margin-right: 15px;
+}
+.sur-mesure .form-images label img.radio {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.sur-mesure .form-images label span {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 0.9em;
+}
+.sur-mesure [type="radio"]:checked + img.radio {
+  outline: 3px solid #F3C226;
+  outline-offset: -3px;
+  box-shadow: 0 4px 12px rgba(243, 194, 38, 0.4);
+  transform: scale(1.02);
 }
 .sur-mesure .form-content-image {
   background-color: #fff;

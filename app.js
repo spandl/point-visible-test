@@ -18,12 +18,15 @@ function fillHidden(hiddenname) {
   }
 }
 
-// Color picker for SVG shape coloring
+// Color picker for SVG shape coloring with model selection
 class ColorPicker {
   constructor() {
-    this.maxColors = 5; // Number of SVG shapes (c1 to c5)
-    this.selectedColors = new Array(this.maxColors).fill(null);
+    this.maxColors = 5; // Default, will be updated based on SVG
+    this.maxColorsTracked = 5; // Track the maximum colors ever needed
+    this.selectedColors = [];
     this.colorToSlot = new Map();
+    this.currentSvgUrl = null; // No default - user must select a model
+    this.currentSvgElement = null;
     this.init();
   }
 
@@ -36,18 +39,78 @@ class ColorPicker {
   }
 
   setupListeners() {
+    // Color checkboxes
     const checkboxes = document.querySelectorAll('.color-picker input[type="checkbox"]');
     checkboxes.forEach(checkbox => {
       checkbox.addEventListener('change', (e) => this.handleColorChange(e.target));
     });
+
+    // Model radio buttons
+    const modelRadios = document.querySelectorAll('input[name="model"]');
+    modelRadios.forEach(radio => {
+      radio.addEventListener('change', (e) => this.handleModelChange(e.target));
+    });
+
+    // Load initial SVG only if one is selected
+    const checkedModel = document.querySelector('input[name="model"]:checked');
+    if (checkedModel) {
+      this.currentSvgUrl = checkedModel.getAttribute('data-svg');
+      this.loadInlineSVG(this.currentSvgUrl);
+    }
+    // Otherwise, show empty preview or placeholder
+  }
+
+  async handleModelChange(radio) {
+    const newSvgUrl = radio.getAttribute('data-svg');
+    if (newSvgUrl === this.currentSvgUrl) return;
+
+    // Store current colors
+    const savedColors = this.selectedColors.filter(slot => slot !== null);
+    
+    // Load new SVG
+    this.currentSvgUrl = newSvgUrl;
+    await this.loadInlineSVG(newSvgUrl);
+
+    // Count shapes in new SVG
+    const newShapeCount = this.countColorableShapes();
+    
+    // Keep track of maximum colors ever needed
+    this.maxColorsTracked = Math.max(this.maxColorsTracked, newShapeCount, savedColors.length);
+    
+    // Always maintain the maximum color slots (never reduce)
+    this.maxColors = this.maxColorsTracked;
+    this.selectedColors = new Array(this.maxColors).fill(null);
+    this.colorToSlot.clear();
+
+    // Reapply all saved colors to slots
+    savedColors.forEach((colorData, index) => {
+      this.selectedColors[index] = colorData;
+      this.colorToSlot.set(colorData.colorId, index);
+      
+      // Only apply color to SVG if this slot index exists in current model
+      if (index < newShapeCount) {
+        this.updateSVGShape(index, colorData.color);
+      }
+    });
+
+    this.updateUI();
+  }
+
+  countColorableShapes() {
+    if (!this.currentSvgElement) return 5; // Default
+    
+    // Use the same logic as getColorableShapes() for consistency
+    const colorableShapes = this.getColorableShapes();
+    const count = colorableShapes.length;
+    
+    console.log(`Counted ${count} colorable shapes in SVG`);
+    return count > 0 ? count : 5; // Fallback to 5
   }
 
   handleColorChange(checkbox) {
     const colorId = checkbox.id;
-    const label = checkbox.parentElement;
     
     if (checkbox.checked) {
-      // Get color from data-color attribute
       const color = checkbox.getAttribute('data-color');
       if (color) {
         this.addColor(colorId, color, checkbox);
@@ -69,7 +132,7 @@ class ColorPicker {
     if (emptySlot !== -1) {
       this.selectedColors[emptySlot] = { colorId, color };
       this.colorToSlot.set(colorId, emptySlot);
-      this.updateSVGShape(emptySlot + 1, color);
+      this.updateSVGShape(emptySlot, color);
     } else {
       checkbox.checked = false;
     }
@@ -80,63 +143,83 @@ class ColorPicker {
     if (slot !== undefined) {
       this.selectedColors[slot] = null;
       this.colorToSlot.delete(colorId);
-      this.updateSVGShape(slot + 1, 'white');
+      this.updateSVGShape(slot, 'white');
     }
   }
 
-  updateSVGShape(shapeNumber, color) {
-    this.loadInlineSVG().then(svgDoc => {
-      if (!svgDoc) return;
-      
-      const shape = svgDoc.getElementById(`c${shapeNumber}`);
-      if (shape) {
-        shape.setAttribute('fill', color);
-        if (color !== 'white') {
-          shape.style.fillOpacity = '1';
-        }
-      } else {
-        console.warn(`Shape c${shapeNumber} not found`);
+  updateSVGShape(slotIndex, color) {
+    if (!this.currentSvgElement) return;
+    
+    // Get all colorable shapes (by index, not by ID)
+    const shapes = this.getColorableShapes();
+    
+    if (slotIndex < shapes.length) {
+      const shape = shapes[slotIndex];
+      shape.setAttribute('fill', color);
+      if (color !== 'white') {
+        shape.style.fillOpacity = '1';
       }
+    }
+  }
+
+  getColorableShapes() {
+    if (!this.currentSvgElement) return [];
+    
+    // Get all shapes by their order in the SVG (rect, circle, path, polygon, ellipse)
+    const allShapes = this.currentSvgElement.querySelectorAll('rect, circle, path, polygon, ellipse');
+    
+    return Array.from(allShapes).filter(shape => {
+      const fill = shape.getAttribute('fill');
+      const stroke = shape.getAttribute('stroke');
+      
+      // Exclude shapes that are explicitly fill="none" 
+      if (fill === 'none') return false;
+      
+      // Include shapes with explicit fill attribute (white, color, etc.)
+      if (fill && fill !== 'none') return true;
+      
+      // Exclude stroke-only shapes (have stroke but no fill attribute at all)
+      // These are decorative lines/outlines, not colorable areas
+      if (stroke && !shape.hasAttribute('fill')) return false;
+      
+      // Include everything else (shapes with no fill or stroke attributes default to black fill)
+      return true;
     });
   }
 
-  async loadInlineSVG() {
-    let svgElement = document.querySelector('svg[data-color-picker]');
-    
-    if (!svgElement) {
-      const imgElement = document.querySelector('img[src*="sample-vector"]');
-      if (!imgElement) {
-        console.warn('SVG image not found');
-        return null;
-      }
-
-      try {
-        const response = await fetch('sample-vector-empty.svg');
-        const svgText = await response.text();
-        const parser = new DOMParser();
-        const svgDoc = parser.parseFromString(svgText, 'image/svg+xml');
-        svgElement = svgDoc.querySelector('svg');
-        
-        if (!svgElement) {
-          console.error('Could not parse SVG');
-          return null;
-        }
-        
-        svgElement.setAttribute('data-color-picker', 'true');
-        svgElement.style.maxWidth = '100%';
-        svgElement.style.height = 'auto';
-        
-        const container = imgElement.parentElement;
-        container.replaceChild(svgElement, imgElement);
-        
-        console.log('SVG loaded inline successfully');
-      } catch (error) {
-        console.error('Error loading SVG:', error);
-        return null;
-      }
+  async loadInlineSVG(svgUrl) {
+    const imgElement = document.querySelector('.svg-preview img, .svg-preview svg');
+    if (!imgElement) {
+      console.warn('SVG preview container not found');
+      return;
     }
-    
-    return svgElement;
+
+    try {
+      const response = await fetch(svgUrl);
+      const svgText = await response.text();
+      const parser = new DOMParser();
+      const svgDoc = parser.parseFromString(svgText, 'image/svg+xml');
+      const svgElement = svgDoc.querySelector('svg');
+      
+      if (!svgElement) {
+        console.error('Could not parse SVG');
+        return;
+      }
+      
+      svgElement.setAttribute('data-color-picker', 'true');
+      svgElement.style.maxWidth = '100%';
+      svgElement.style.height = 'auto';
+      
+      const container = imgElement.parentElement;
+      container.innerHTML = '';
+      container.appendChild(svgElement);
+      
+      this.currentSvgElement = svgElement;
+      
+      console.log(`SVG loaded: ${svgUrl}`);
+    } catch (error) {
+      console.error('Error loading SVG:', error);
+    }
   }
 
   updateUI() {
