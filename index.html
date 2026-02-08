@@ -10,8 +10,29 @@
     <link rel="stylesheet" href="custom.css">
   </head>
   <body>
+    <!-- Floating Price Calculator -->
+    <div id="price-calculator" class="price-calculator" style="display: none;">
+      <div class="price-label">Prix approx. avec options:</div>
+      <div class="price-amount" id="price-amount">0$</div>
+    </div>
+    
     <div class="sur-mesure">
     <h1>POC Formulaire</h1>
+
+    <!-- FORMAT -->
+    <h3>Choisir le format</h3>
+    <div class="form-content-image">
+      <label for="format-select">Choisir le format</label>
+      <select name="contact[Choisir le format]" id="format-select">
+        <option value="" data-price="0">Choisir le format</option>
+        <option value="Suspension / bassinette (30x45po) 575$" data-price="575">Suspension / bassinette (30x45po) 575$</option>
+        <option value="Jeté (50x65po): 750$" data-price="750">Jeté (50x65po): 750$</option>
+        <option value="Lit simple (70x90po): 840$" data-price="840">Lit simple (70x90po): 840$</option>
+        <option value="Lit double (85x90po): 925$" data-price="925">Lit double (85x90po): 925$</option>
+        <option value="Lit queen (90x95po): 995$" data-price="995">Lit queen (90x95po): 995$</option>
+        <option value="Lit king (100x90po): 1100$" data-price="1100">Lit king (100x90po): 1100$</option>
+      </select>
+    </div>
 
     <!-- MODELS -->
     <h3>Déterminer le modèle souhaité</h3>
@@ -228,6 +249,52 @@
       id="Colors"
       name="contact[Sélectionner les couleurs d&#39;inspiration]"
     />
+
+
+    <!-- OPTIONS -->
+    <h3>Options de personnalisation</h3>
+    <p class="intro">
+      Ces options peuvent varier le prix. Les détails seront discutés lors de la consultation privée.
+    </p>
+    <div class="form-content-image">
+      <label>
+        <input type="checkbox" class="option-checkbox" name="contact[Options de personnalisation][]" value="Autre choix de surpiqûre (+ 100 à 525$)" data-price="100" />
+        Autre choix de surpiqûre (+ 100 à 525$)
+      </label>
+      <label>
+        <input type="checkbox" class="option-checkbox" name="contact[Options de personnalisation][]" value="Autre modèle existant (+ 125$)" data-price="125" />
+        Autre modèle existant (+ 125$)
+      </label>
+      <label>
+        <input type="checkbox" class="option-checkbox" name="contact[Options de personnalisation][]" value="Modèle sur mesure (+ 225$)" data-price="225" />
+        Modèle sur mesure (+ 225$)
+      </label>
+      <label>
+        <input type="checkbox" class="option-checkbox" name="contact[Options de personnalisation][]" value="Assemblage \"improv\" (+ 200 à 600$)" data-price="200" />
+        Assemblage "improv" (+ 200 à 600$)
+      </label>
+      <label>
+        <input type="checkbox" class="option-checkbox" name="contact[Options de personnalisation][]" value="Broderie personnalisée (+$)" data-price="0" />
+        Broderie personnalisée (+$)
+      </label>
+      <label>
+        <input type="checkbox" class="option-checkbox" name="contact[Options de personnalisation][]" value="Ajout d'un système d'accroche pour suspension murale (+$)" data-price="0" />
+        Ajout d'un système d'accroche pour suspension murale (+$)
+      </label>
+      <label>
+        <input type="checkbox" class="option-checkbox" name="contact[Options de personnalisation][]" value="Coussins assortis à la courtepointe (2 minimum, 160$ chacun)" data-price="320" />
+        Coussins assortis à la courtepointe (2 minimum, 160$ chacun)
+      </label>
+      <label>
+        <input type="checkbox" class="option-checkbox" name="contact[Options de personnalisation][]" value="Insertion à partir de vêtements (+ 225$)" data-price="225" />
+        Insertion à partir de vêtements (+ 225$)
+      </label>
+      <label>
+        <input type="checkbox" class="option-checkbox" name="contact[Options de personnalisation][]" value="Bourre de laine (+ 50 à 300$)" data-price="50" />
+        Bourre de laine (+ 50 à 300$)
+      </label>
+    </div>
+
     <script src="app.js"></script>
     </div>
   </body>

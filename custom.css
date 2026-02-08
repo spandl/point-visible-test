@@ -10,7 +10,50 @@ body {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+  position: relative;
 }
+
+/* Floating Price Calculator */
+.price-calculator {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background-color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  width: fit-content;
+}
+
+.price-label {
+  font-size: 0.9em;
+  font-weight: 400;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.price-amount {
+  font-size: 1.6em;
+  font-weight: 500;
+  color: #000;
+}
+
+/* Responsive positioning: move inside content area on smaller screens */
+@media (max-width: 1140px) {
+  .price-calculator {
+    right: 20px;
+    /* Will overlap content on small screens */
+  }
+}
+
+@media (min-width: 1141px) {
+  .price-calculator {
+    right: calc((100vw - 800px) / 2 - 175px);
+    /* Position outside the 800px content body */
+  }
+}
+
 .page__contact-form.white-bg {
   background-color: #fff !important;
 }
@@ -102,6 +145,29 @@ body {
   background-color: #fff;
   padding: 30px;
   margin-bottom: 30px;
+}
+.sur-mesure .form-content-image label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 1em;
+  font-weight: 300;
+}
+.sur-mesure .form-content-image select {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1em;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  margin-top: 8px;
+  cursor: pointer;
+}
+.sur-mesure .form-content-image input[type="checkbox"] {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
 }
 .sur-mesure [type="radio"],
 .sur-mesure [type="checkbox"].image,

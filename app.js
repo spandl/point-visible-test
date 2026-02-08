@@ -18,6 +18,75 @@ function fillHidden(hiddenname) {
   }
 }
 
+// Price Calculator
+class PriceCalculator {
+  constructor() {
+    this.formatSelect = null;
+    this.optionCheckboxes = [];
+    this.priceDisplay = null;
+    this.priceContainer = null;
+    this.init();
+  }
+
+  init() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => this.setup());
+    } else {
+      this.setup();
+    }
+  }
+
+  setup() {
+    this.formatSelect = document.getElementById('format-select');
+    this.optionCheckboxes = document.querySelectorAll('.option-checkbox');
+    this.priceDisplay = document.getElementById('price-amount');
+    this.priceContainer = document.getElementById('price-calculator');
+
+    if (this.formatSelect) {
+      this.formatSelect.addEventListener('change', () => this.updatePrice());
+    }
+
+    this.optionCheckboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', () => this.updatePrice());
+    });
+  }
+
+  updatePrice() {
+    let total = 0;
+
+    // Get format price
+    if (this.formatSelect && this.formatSelect.selectedIndex > 0) {
+      const selectedOption = this.formatSelect.options[this.formatSelect.selectedIndex];
+      const formatPrice = parseInt(selectedOption.getAttribute('data-price')) || 0;
+      total += formatPrice;
+
+      // Show price calculator
+      if (this.priceContainer) {
+        this.priceContainer.style.display = 'block';
+      }
+    } else {
+      // Hide if no format selected
+      if (this.priceContainer) {
+        this.priceContainer.style.display = 'none';
+      }
+      return;
+    }
+
+    // Add option prices
+    this.optionCheckboxes.forEach(checkbox => {
+      if (checkbox.checked) {
+        const price = parseInt(checkbox.getAttribute('data-price')) || 0;
+        total += price;
+      }
+    });
+
+    // Update display
+    if (this.priceDisplay) {
+      this.priceDisplay.textContent = total + '$';
+    }
+  }
+}
+
 // Color picker for SVG shape coloring with model selection
 class ColorPicker {
   constructor() {
@@ -156,9 +225,43 @@ class ColorPicker {
     if (slotIndex < shapes.length) {
       const shape = shapes[slotIndex];
       shape.setAttribute('fill', color);
+      
       if (color !== 'white') {
         shape.style.fillOpacity = '1';
+        // Remove stroke when color is applied
+        shape.removeAttribute('stroke');
+        shape.removeAttribute('stroke-width');
+      } else {
+        // Restore stroke when color is removed (set back to white)
+        shape.setAttribute('stroke', 'black');
+        shape.setAttribute('stroke-width', '2');
       }
+    }
+    
+    // Update SVG drop-shadow based on completion status
+    this.updateSVGShadow();
+  }
+
+  updateSVGShadow() {
+    if (!this.currentSvgElement) return;
+    
+    const shapes = this.getColorableShapes();
+    const currentShapeCount = this.countColorableShapes();
+    
+    // Check if all shapes in current SVG have colors applied
+    let allColored = true;
+    for (let i = 0; i < currentShapeCount; i++) {
+      if (!this.selectedColors[i] || this.selectedColors[i] === null) {
+        allColored = false;
+        break;
+      }
+    }
+    
+    // Apply or remove drop-shadow on the entire SVG
+    if (allColored && currentShapeCount > 0) {
+      this.currentSvgElement.style.filter = 'drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4))';
+    } else {
+      this.currentSvgElement.style.filter = 'none';
     }
   }
 
@@ -243,3 +346,6 @@ class ColorPicker {
 
 // Initialize the color picker
 const colorPicker = new ColorPicker();
+
+// Initialize the price calculator
+const priceCalculator = new PriceCalculator();
