@@ -14,324 +14,148 @@
     <h1>POC Formulaire</h1>
 
     <!-- COLORS -->
-    <h3>Sélectionner les couleurs d&#39;inspiration</h3>
+    <h3>Sélectionner les couleurs d'inspiration</h3>
     <p class="intro">
       Les couleurs sélectionnées sont à titre indicatif. Ces couleurs nous
-      guideront afin de vous proposer des palettes de couleurs qui s&#39;en
+      guideront afin de vous proposer des palettes de couleurs qui s'en
       inspirent. Puisque nous travaillons avec des tissus surcyclés, nous sommes
       continuellement en train de renouveler notre inventaire. Heureusement, sa
       diversité nous permettra de vous proposer des options similaires à vos
       désirs afin de trouver la palette parfaite!
     </p>
     
-    <div style="text-align: center; margin-bottom: 30px;">
-      <img src="sample-vector-empty.svg" alt="Design Template" style="max-width: 100%; height: auto;">
+    <div class="layout-container">
+      <div class="svg-preview">
+        <img src="sample-vector-empty.svg" alt="Design Template" style="max-width: 100%; height: auto;">
+      </div>
+      
+      <div class="color-picker">
+      <!-- Row 1 (Lightest) -->
+      <label>
+        <input type="checkbox" class="image" id="orange-5" data-color="#F2E5C9" hidden-data="Colors" onchange="fillHidden('Colors')" value="Orange 5"/>
+        <svg class="radio" width="60" height="60" viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="28" fill="#F2E5C9" stroke="none"/>
+        </svg>
+      </label>
+      <label>
+        <input type="checkbox" class="image" id="rose-5" data-color="#F9B69D" hidden-data="Colors" onchange="fillHidden('Colors')" value="Rose 5"/>
+        <svg class="radio" width="60" height="60" viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="28" fill="#F9B69D" stroke="none"/>
+        </svg>
+      </label>
+      <label>
+        <input type="checkbox" class="image" id="green-5" data-color="#9FD0B6" hidden-data="Colors" onchange="fillHidden('Colors')" value="Green 5"/>
+        <svg class="radio" width="60" height="60" viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="28" fill="#9FD0B6" stroke="none"/>
+        </svg>
+      </label>
+      <label>
+        <input type="checkbox" class="image" id="blue-5" data-color="#ADD1E2" hidden-data="Colors" onchange="fillHidden('Colors')" value="Blue 5"/>
+        <svg class="radio" width="60" height="60" viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="28" fill="#ADD1E2" stroke="none"/>
+        </svg>
+      </label>
+      <!-- Row 2 -->
+      <label>
+        <input type="checkbox" class="image" id="orange-4" data-color="#F3C226" hidden-data="Colors" onchange="fillHidden('Colors')" value="Orange 4"/>
+        <svg class="radio" width="60" height="60" viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="28" fill="#F3C226" stroke="none"/>
+        </svg>
+      </label>
+      <label>
+        <input type="checkbox" class="image" id="rose-4" data-color="#E29B88" hidden-data="Colors" onchange="fillHidden('Colors')" value="Rose 4"/>
+        <svg class="radio" width="60" height="60" viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="28" fill="#E29B88" stroke="none"/>
+        </svg>
+      </label>
+      <label>
+        <input type="checkbox" class="image" id="green-4" data-color="#85A881" hidden-data="Colors" onchange="fillHidden('Colors')" value="Green 4"/>
+        <svg class="radio" width="60" height="60" viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="28" fill="#85A881" stroke="none"/>
+        </svg>
+      </label>
+      <label>
+        <input type="checkbox" class="image" id="blue-4" data-color="#7EA0A3" hidden-data="Colors" onchange="fillHidden('Colors')" value="Blue 4"/>
+        <svg class="radio" width="60" height="60" viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="28" fill="#7EA0A3" stroke="none"/>
+        </svg>
+      </label>
+      <!-- Row 3 -->
+      <label>
+        <input type="checkbox" class="image" id="orange-3" data-color="#D37F2E" hidden-data="Colors" onchange="fillHidden('Colors')" value="Orange 3"/>
+        <svg class="radio" width="60" height="60" viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="28" fill="#D37F2E" stroke="none"/>
+        </svg>
+      </label>
+      <label>
+        <input type="checkbox" class="image" id="rose-3" data-color="#D05D59" hidden-data="Colors" onchange="fillHidden('Colors')" value="Rose 3"/>
+        <svg class="radio" width="60" height="60" viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="28" fill="#D05D59" stroke="none"/>
+        </svg>
+      </label>
+      <label>
+        <input type="checkbox" class="image" id="green-3" data-color="#489985" hidden-data="Colors" onchange="fillHidden('Colors')" value="Green 3"/>
+        <svg class="radio" width="60" height="60" viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="28" fill="#489985" stroke="none"/>
+        </svg>
+      </label>
+      <label>
+        <input type="checkbox" class="image" id="blue-3" data-color="#295283" hidden-data="Colors" onchange="fillHidden('Colors')" value="Blue 3"/>
+        <svg class="radio" width="60" height="60" viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="28" fill="#295283" stroke="none"/>
+        </svg>
+      </label>
+      <!-- Row 4 -->
+      <label>
+        <input type="checkbox" class="image" id="orange-2" data-color="#A45321" hidden-data="Colors" onchange="fillHidden('Colors')" value="Orange 2"/>
+        <svg class="radio" width="60" height="60" viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="28" fill="#A45321" stroke="none"/>
+        </svg>
+      </label>
+      <label>
+        <input type="checkbox" class="image" id="rose-2" data-color="#8E135C" hidden-data="Colors" onchange="fillHidden('Colors')" value="Rose 2"/>
+        <svg class="radio" width="60" height="60" viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="28" fill="#8E135C" stroke="none"/>
+        </svg>
+      </label>
+      <label>
+        <input type="checkbox" class="image" id="green-2" data-color="#5B5122" hidden-data="Colors" onchange="fillHidden('Colors')" value="Green 2"/>
+        <svg class="radio" width="60" height="60" viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="28" fill="#5B5122" stroke="none"/>
+        </svg>
+      </label>
+      <label>
+        <input type="checkbox" class="image" id="blue-2" data-color="#353470" hidden-data="Colors" onchange="fillHidden('Colors')" value="Blue 2"/>
+        <svg class="radio" width="60" height="60" viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="28" fill="#353470" stroke="none"/>
+        </svg>
+      </label>
+      <!-- Row 5 (Darkest) -->
+      <label>
+        <input type="checkbox" class="image" id="orange-1" data-color="#942A14" hidden-data="Colors" onchange="fillHidden('Colors')" value="Orange 1"/>
+        <svg class="radio" width="60" height="60" viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="28" fill="#942A14" stroke="none"/>
+        </svg>
+      </label>
+      <label>
+        <input type="checkbox" class="image" id="rose-1" data-color="#380527" hidden-data="Colors" onchange="fillHidden('Colors')" value="Rose 1"/>
+        <svg class="radio" width="60" height="60" viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="28" fill="#380527" stroke="none"/>
+        </svg>
+      </label>
+      <label>
+        <input type="checkbox" class="image" id="green-1" data-color="#143F37" hidden-data="Colors" onchange="fillHidden('Colors')" value="Green 1"/>
+        <svg class="radio" width="60" height="60" viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="28" fill="#143F37" stroke="none"/>
+        </svg>
+      </label>
+      <label>
+        <input type="checkbox" class="image" id="blue-1" data-color="#051B4A" hidden-data="Colors" onchange="fillHidden('Colors')" value="Blue 1"/>
+        <svg class="radio" width="60" height="60" viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="28" fill="#051B4A" stroke="none"/>
+        </svg>
+      </label>
     </div>
-    
-    <div class="color-picker">
-      <label>
-        <input
-          type="checkbox"
-          class="image"
-          id="blue-1"
-          data-color="#051B4A"
-          hidden-data="Colors"
-          onchange="fillHidden('Colors')"
-          value="Blue 1"
-        />
-        <img
-          class="radio"
-          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_blue-1.png"
-        />
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          class="image"
-          id="blue-2"
-          data-color="#353470"
-          hidden-data="Colors"
-          onchange="fillHidden('Colors')"
-          value="Blue 2"
-        />
-        <img
-          class="radio"
-          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_blue-2.png"
-        />
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          class="image"
-          id="blue-3"
-          data-color="#295283"
-          hidden-data="Colors"
-          onchange="fillHidden('Colors')"
-          value="Blue 3"
-        />
-        <img
-          class="radio"
-          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_blue-3.png"
-        />
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          class="image"
-          id="blue-4"
-          data-color="#7EA0A3"
-          hidden-data="Colors"
-          onchange="fillHidden('Colors')"
-          value="Blue 4"
-        />
-        <img
-          class="radio"
-          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_blue-4.png"
-        />
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          class="image"
-          id="blue-5"
-          data-color="#ADD1E2"
-          hidden-data="Colors"
-          onchange="fillHidden('Colors')"
-          value="Blue 5"
-        />
-        <img
-          class="radio"
-          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_blue-5.png"
-        />
-      </label>
-      <!-- Green -->
-      <label>
-        <input
-          type="checkbox"
-          class="image"
-          id="green-1"
-          data-color="#143F37"
-          hidden-data="Colors"
-          onchange="fillHidden('Colors')"
-          value="Green 1"
-        />
-        <img
-          class="radio"
-          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_green-1.png"
-        />
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          class="image"
-          id="green-2"
-          data-color="#5B5122"
-          hidden-data="Colors"
-          onchange="fillHidden('Colors')"
-          value="Green 2"
-        />
-        <img
-          class="radio"
-          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_green-2.png"
-        />
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          class="image"
-          id="green-3"
-          data-color="#489985"
-          hidden-data="Colors"
-          onchange="fillHidden('Colors')"
-          value="Green 3"
-        />
-        <img
-          class="radio"
-          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_green-3.png"
-        />
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          class="image"
-          id="green-4"
-          data-color="#85A881"
-          hidden-data="Colors"
-          onchange="fillHidden('Colors')"
-          value="Green 4"
-        />
-        <img
-          class="radio"
-          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_green-4.png"
-        />
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          class="image"
-          id="green-5"
-          data-color="#9FD0B6"
-          hidden-data="Colors"
-          onchange="fillHidden('Colors')"
-          value="Green 5"
-        />
-        <img
-          class="radio"
-          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_green-5.png"
-        />
-      </label>
-      <!-- Rose -->
-      <label>
-        <input
-          type="checkbox"
-          class="image"
-          id="rose-1"
-          data-color="#380527"
-          hidden-data="Colors"
-          onchange="fillHidden('Colors')"
-          value="Rose 1"
-        />
-        <img
-          class="radio"
-          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_rose-1.png"
-        />
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          class="image"
-          id="rose-2"
-          data-color="#8E135C"
-          hidden-data="Colors"
-          onchange="fillHidden('Colors')"
-          value="Rose 2"
-        />
-        <img
-          class="radio"
-          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_rose-2.png"
-        />
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          class="image"
-          id="rose-3"
-          data-color="#D05D59"
-          hidden-data="Colors"
-          onchange="fillHidden('Colors')"
-          value="Rose 3"
-        />
-        <img
-          class="radio"
-          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_rose-3.png"
-        />
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          class="image"
-          id="rose-4"
-          data-color="#E29B88"
-          hidden-data="Colors"
-          onchange="fillHidden('Colors')"
-          value="Rose 4"
-        />
-        <img
-          class="radio"
-          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_rose-4.png"
-        />
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          class="image"
-          id="rose-5"
-          data-color="#F9B69D"
-          hidden-data="Colors"
-          onchange="fillHidden('Colors')"
-          value="Rose 5"
-        />
-        <img
-          class="radio"
-          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_rose-5.png"
-        />
-      </label>
-      <!-- Orange -->
-      <label>
-        <input
-          type="checkbox"
-          class="image"
-          id="orange-1"
-          data-color="#942A14"
-          hidden-data="Colors"
-          onchange="fillHidden('Colors')"
-          value="Orange 1"
-        />
-        <img
-          class="radio"
-          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_orange-1.png"
-        />
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          class="image"
-          id="orange-2"
-          data-color="#A45321"
-          hidden-data="Colors"
-          onchange="fillHidden('Colors')"
-          value="Orange 2"
-        />
-        <img
-          class="radio"
-          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_orange-2.png"
-        />
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          class="image"
-          id="orange-3"
-          data-color="#D37F2E"
-          hidden-data="Colors"
-          onchange="fillHidden('Colors')"
-          value="Orange 3"
-        />
-        <img
-          class="radio"
-          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_orange-3.png"
-        />
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          class="image"
-          id="orange-4"
-          data-color="#F3C226"
-          hidden-data="Colors"
-          onchange="fillHidden('Colors')"
-          value="Orange 4"
-        />
-        <img
-          class="radio"
-          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_orange-4.png"
-        />
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          class="image"
-          id="orange-5"
-          data-color="#F2E5C9"
-          hidden-data="Colors"
-          onchange="fillHidden('Colors')"
-          value="Orange 5"
-        />
-        <img
-          class="radio"
-          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_orange-5.png"
-        />
-      </label>
     </div>
     <!-- Collect checkbox data -->
     <input

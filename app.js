@@ -52,52 +52,11 @@ class ColorPicker {
       if (color) {
         this.addColor(colorId, color, checkbox);
         this.updateUI();
-      } else {
-        // Fallback to image extraction if no data-color
-        const img = label.querySelector('img.radio');
-        this.extractColorFromImage(img).then(extractedColor => {
-          this.addColor(colorId, extractedColor, checkbox);
-          this.updateUI();
-        });
       }
     } else {
       this.removeColor(colorId);
       this.updateUI();
     }
-  }
-
-  async extractColorFromImage(img) {
-    return new Promise((resolve) => {
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
-      
-      if (!img.complete) {
-        img.onload = () => this.getImageColor(img, canvas, ctx, resolve);
-      } else {
-        this.getImageColor(img, canvas, ctx, resolve);
-      }
-    });
-  }
-
-  getImageColor(img, canvas, ctx, resolve) {
-    canvas.width = img.naturalWidth || img.width;
-    canvas.height = img.naturalHeight || img.height;
-    
-    ctx.drawImage(img, 0, 0);
-    
-    const centerX = Math.floor(canvas.width / 2);
-    const centerY = Math.floor(canvas.height / 2);
-    const imageData = ctx.getImageData(centerX, centerY, 1, 1);
-    const pixel = imageData.data;
-    
-    const color = `#${this.componentToHex(pixel[0])}${this.componentToHex(pixel[1])}${this.componentToHex(pixel[2])}`;
-    console.log('Extracted color:', color);
-    resolve(color);
-  }
-
-  componentToHex(c) {
-    const hex = c.toString(16);
-    return hex.length === 1 ? '0' + hex : hex;
   }
 
   addColor(colorId, color, checkbox) {
