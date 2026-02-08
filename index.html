@@ -1,0 +1,345 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="custom.css">
+  </head>
+  <body>
+    <div class="sur-mesure">
+    <h1>POC Formulaire</h1>
+
+    <!-- COLORS -->
+    <h3>Sélectionner les couleurs d&#39;inspiration</h3>
+    <p class="intro">
+      Les couleurs sélectionnées sont à titre indicatif. Ces couleurs nous
+      guideront afin de vous proposer des palettes de couleurs qui s&#39;en
+      inspirent. Puisque nous travaillons avec des tissus surcyclés, nous sommes
+      continuellement en train de renouveler notre inventaire. Heureusement, sa
+      diversité nous permettra de vous proposer des options similaires à vos
+      désirs afin de trouver la palette parfaite!
+    </p>
+    
+    <div style="text-align: center; margin-bottom: 30px;">
+      <img src="sample-vector-empty.svg" alt="Design Template" style="max-width: 100%; height: auto;">
+    </div>
+    
+    <div class="color-picker">
+      <label>
+        <input
+          type="checkbox"
+          class="image"
+          id="blue-1"
+          data-color="#051B4A"
+          hidden-data="Colors"
+          onchange="fillHidden('Colors')"
+          value="Blue 1"
+        />
+        <img
+          class="radio"
+          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_blue-1.png"
+        />
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          class="image"
+          id="blue-2"
+          data-color="#353470"
+          hidden-data="Colors"
+          onchange="fillHidden('Colors')"
+          value="Blue 2"
+        />
+        <img
+          class="radio"
+          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_blue-2.png"
+        />
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          class="image"
+          id="blue-3"
+          data-color="#295283"
+          hidden-data="Colors"
+          onchange="fillHidden('Colors')"
+          value="Blue 3"
+        />
+        <img
+          class="radio"
+          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_blue-3.png"
+        />
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          class="image"
+          id="blue-4"
+          data-color="#7EA0A3"
+          hidden-data="Colors"
+          onchange="fillHidden('Colors')"
+          value="Blue 4"
+        />
+        <img
+          class="radio"
+          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_blue-4.png"
+        />
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          class="image"
+          id="blue-5"
+          data-color="#ADD1E2"
+          hidden-data="Colors"
+          onchange="fillHidden('Colors')"
+          value="Blue 5"
+        />
+        <img
+          class="radio"
+          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_blue-5.png"
+        />
+      </label>
+      <!-- Green -->
+      <label>
+        <input
+          type="checkbox"
+          class="image"
+          id="green-1"
+          data-color="#143F37"
+          hidden-data="Colors"
+          onchange="fillHidden('Colors')"
+          value="Green 1"
+        />
+        <img
+          class="radio"
+          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_green-1.png"
+        />
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          class="image"
+          id="green-2"
+          data-color="#5B5122"
+          hidden-data="Colors"
+          onchange="fillHidden('Colors')"
+          value="Green 2"
+        />
+        <img
+          class="radio"
+          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_green-2.png"
+        />
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          class="image"
+          id="green-3"
+          data-color="#489985"
+          hidden-data="Colors"
+          onchange="fillHidden('Colors')"
+          value="Green 3"
+        />
+        <img
+          class="radio"
+          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_green-3.png"
+        />
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          class="image"
+          id="green-4"
+          data-color="#85A881"
+          hidden-data="Colors"
+          onchange="fillHidden('Colors')"
+          value="Green 4"
+        />
+        <img
+          class="radio"
+          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_green-4.png"
+        />
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          class="image"
+          id="green-5"
+          data-color="#9FD0B6"
+          hidden-data="Colors"
+          onchange="fillHidden('Colors')"
+          value="Green 5"
+        />
+        <img
+          class="radio"
+          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_green-5.png"
+        />
+      </label>
+      <!-- Rose -->
+      <label>
+        <input
+          type="checkbox"
+          class="image"
+          id="rose-1"
+          data-color="#380527"
+          hidden-data="Colors"
+          onchange="fillHidden('Colors')"
+          value="Rose 1"
+        />
+        <img
+          class="radio"
+          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_rose-1.png"
+        />
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          class="image"
+          id="rose-2"
+          data-color="#8E135C"
+          hidden-data="Colors"
+          onchange="fillHidden('Colors')"
+          value="Rose 2"
+        />
+        <img
+          class="radio"
+          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_rose-2.png"
+        />
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          class="image"
+          id="rose-3"
+          data-color="#D05D59"
+          hidden-data="Colors"
+          onchange="fillHidden('Colors')"
+          value="Rose 3"
+        />
+        <img
+          class="radio"
+          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_rose-3.png"
+        />
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          class="image"
+          id="rose-4"
+          data-color="#E29B88"
+          hidden-data="Colors"
+          onchange="fillHidden('Colors')"
+          value="Rose 4"
+        />
+        <img
+          class="radio"
+          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_rose-4.png"
+        />
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          class="image"
+          id="rose-5"
+          data-color="#F9B69D"
+          hidden-data="Colors"
+          onchange="fillHidden('Colors')"
+          value="Rose 5"
+        />
+        <img
+          class="radio"
+          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_rose-5.png"
+        />
+      </label>
+      <!-- Orange -->
+      <label>
+        <input
+          type="checkbox"
+          class="image"
+          id="orange-1"
+          data-color="#942A14"
+          hidden-data="Colors"
+          onchange="fillHidden('Colors')"
+          value="Orange 1"
+        />
+        <img
+          class="radio"
+          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_orange-1.png"
+        />
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          class="image"
+          id="orange-2"
+          data-color="#A45321"
+          hidden-data="Colors"
+          onchange="fillHidden('Colors')"
+          value="Orange 2"
+        />
+        <img
+          class="radio"
+          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_orange-2.png"
+        />
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          class="image"
+          id="orange-3"
+          data-color="#D37F2E"
+          hidden-data="Colors"
+          onchange="fillHidden('Colors')"
+          value="Orange 3"
+        />
+        <img
+          class="radio"
+          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_orange-3.png"
+        />
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          class="image"
+          id="orange-4"
+          data-color="#F3C226"
+          hidden-data="Colors"
+          onchange="fillHidden('Colors')"
+          value="Orange 4"
+        />
+        <img
+          class="radio"
+          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_orange-4.png"
+        />
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          class="image"
+          id="orange-5"
+          data-color="#F2E5C9"
+          hidden-data="Colors"
+          onchange="fillHidden('Colors')"
+          value="Orange 5"
+        />
+        <img
+          class="radio"
+          src="https://cdn.shopify.com/s/files/1/0035/4428/5273/t/12/assets/_form_colour_orange-5.png"
+        />
+      </label>
+    </div>
+    <!-- Collect checkbox data -->
+    <input
+      type="hidden"
+      id="Colors"
+      name="contact[Sélectionner les couleurs d&#39;inspiration]"
+    />
+    <script src="app.js"></script>
+    </div>
+  </body>
+</html>

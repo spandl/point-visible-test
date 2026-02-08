@@ -1,0 +1,119 @@
+thead,
+tbody,
+th,
+td,
+tr {
+  display: revert;
+}
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.page__contact-form.white-bg {
+  background-color: #fff !important;
+}
+.button-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.button-row .button-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-right: 20px;
+  padding: 0;
+}
+.button-row .button-group img {
+  margin: 0;
+  width: 100%;
+}
+.button-row .button-group span {
+  padding: 15px 0;
+}
+.sur-mesure a {
+  font-weight: 700;
+}
+.sur-mesure h3 {
+  margin-top: 60px;
+  text-transform: none;
+  font-size: 1.2em;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+.sur-mesure p.intro {
+  font-size: 0.9em;
+  margin-bottom: 30px;
+}
+.sur-mesure .piqure,
+.sur-mesure .form-images,
+.sur-mesure .color-picker {
+  padding-left: 3px;
+}
+.color-picker {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+}
+.color-picker label {
+  cursor: pointer;
+  display: inline-block;
+}
+.sur-mesure .form-images {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.sur-mesure .form-images label {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: unset;
+  margin-bottom: 15px;
+}
+.sur-mesure .form-content-image {
+  background-color: #fff;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+.sur-mesure [type="radio"],
+.sur-mesure [type="checkbox"].image,
+[type="checkbox"].image {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+.sur-mesure [type="radio"] + img.radio,
+.sur-mesure [type="checkbox"] + img.radio,
+[type="checkbox"] + img.radio {
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  max-width: 60px !important;
+  margin: 0 !important;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  transition: all 0.2s ease;
+  display: block;
+}
+.sur-mesure .piqure [type="radio"] + img.radio {
+  margin-bottom: 25px !important;
+}
+
+.sur-mesure [type="radio"]:checked + img.radio {
+  outline: 4px solid #fcba03;
+  filter: drop-shadow(0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.5));
+}
+.sur-mesure [type="checkbox"]:checked + img.radio,
+[type="checkbox"]:checked + img.radio {
+  filter: drop-shadow(0.1rem 0.1rem 0.35rem rgba(0, 0, 0, 0.8));
+  border: 3px solid #000000;
+  transform: scale(1.05);
+}
+.notes {
+  margin: 20px 0 40px;
+  font-size: 0.8em;
+}
