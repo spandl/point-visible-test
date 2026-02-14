@@ -274,6 +274,7 @@ class ColorPicker {
     return Array.from(allShapes).filter(shape => {
       const fill = shape.getAttribute('fill');
       const stroke = shape.getAttribute('stroke');
+      const tagName = shape.tagName.toLowerCase();
       
       // Exclude shapes that are explicitly fill="none" 
       if (fill === 'none') return false;
@@ -281,9 +282,16 @@ class ColorPicker {
       // Include shapes with explicit fill attribute (white, color, etc.)
       if (fill && fill !== 'none') return true;
       
-      // Exclude stroke-only shapes (have stroke but no fill attribute at all)
-      // These are decorative lines/outlines, not colorable areas
-      if (stroke && !shape.hasAttribute('fill')) return false;
+      // For circles and rects, include them even if they only have stroke
+      // (they're closed shapes that should be colorable)
+      if ((tagName === 'circle' || tagName === 'rect' || tagName === 'ellipse') && stroke) {
+        return true;
+      }
+      
+      // Exclude stroke-only paths (these are decorative lines/outlines)
+      if (tagName === 'path' && stroke && !shape.hasAttribute('fill')) {
+        return false;
+      }
       
       // Include everything else (shapes with no fill or stroke attributes default to black fill)
       return true;

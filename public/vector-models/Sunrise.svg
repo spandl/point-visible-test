@@ -1,10 +1,10 @@
-<svg width="402" height="485" viewBox="0 0 402 485" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="1.5" y="1" width="398" height="478" fill="white" stroke="black" stroke-width="2"/>
-<circle cx="102" cy="243.5" r="45.5" fill="white" stroke="black" stroke-width="2"/>
-<path d="M1 386V483.5H400V259.5L1 386Z" fill="white" stroke="black" stroke-width="2"/>
-<path d="M400.281 483L242.781 483C242.781 252 255.5 241 400.281 241V483Z" fill="white" stroke="black" stroke-width="2"/>
-<rect x="1.5" y="1" width="397" height="28" fill="white" stroke="black" stroke-width="2"/>
-<rect x="1.5" y="29" width="397" height="28" fill="white" stroke="black" stroke-width="2"/>
-<rect x="1.5" y="57" width="397" height="28" fill="white" stroke="black" stroke-width="2"/>
-<rect x="1.5" y="85" width="397" height="28" fill="white" stroke="black" stroke-width="2"/>
+<svg width="402" height="478" viewBox="0 0 402 478" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="1.5" y="1" width="398" height="470.954" fill="white" stroke="black" stroke-width="2"/>
+<path d="M102 195.108C127.143 195.108 147.5 215.187 147.5 239.926C147.5 264.664 127.143 284.743 102 284.743C76.8571 284.743 56.5 264.664 56.5 239.926C56.5 215.187 76.8571 195.108 102 195.108Z" fill="white" stroke="black" stroke-width="2"/>
+<path d="M1 380.334V476.403H400V255.691L1 380.334Z" fill="white" stroke="black" stroke-width="2"/>
+<path d="M400.281 475.91L242.781 475.91C242.781 248.301 255.5 237.462 400.281 237.462V475.91Z" fill="white" stroke="black" stroke-width="2"/>
+<rect x="1.5" y="1" width="397" height="27.5596" fill="white" stroke="black" stroke-width="2"/>
+<rect x="1.5" y="28.589" width="397" height="27.5596" fill="white" stroke="black" stroke-width="2"/>
+<rect x="1.5" y="56.178" width="397" height="27.5596" fill="white" stroke="black" stroke-width="2"/>
+<rect x="1.5" y="83.767" width="397" height="27.5596" fill="white" stroke="black" stroke-width="2"/>
 </svg>
